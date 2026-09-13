@@ -32,7 +32,7 @@ class InverseSeries(unittest.TestCase):
         self.assertEqual(len(t), 0, msg="Inversed empty Series should have length zero!")
 
     def test_called(self):
-        with patch("src.inverse_series.inverse_series", wrap=inverse_series) as pis:
+        with patch("src.inverse_series.inverse_series", wraps=inverse_series) as pis:
             main()
             pis.assert_called()
 
